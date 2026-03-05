@@ -22,14 +22,17 @@ class FloweringPlant(Plant):
 
     def describe(self):
         bloom_state = "blooming" if self.blooming else "not blooming"
-        return f"{self.name}: {self.height_cm}cm, {self.color} flowers ({bloom_state})"
+        return (
+            f"{self.name}: {self.height_cm}cm, "
+            f"{self.color} flowers ({bloom_state})")
 
     def kind(self):
         return "flowering"
 
 
 class PrizeFlower(FloweringPlant):
-    def __init__(self, name, height_cm=0, color="unknown", blooming=True, prize_points=0):
+    def __init__(self, name, height_cm=0, color="unknown", blooming=True,
+                 prize_points=0):
         super().__init__(name, height_cm, color, blooming)
         self.prize_points = prize_points
 
@@ -90,8 +93,12 @@ class GardenManager:
             for p in garden.plants:
                 print(f"- {p.describe()}")
             reg, flo, pri = self.plant_type_counts(garden)
-            print(f"\nPlants added: {garden.plants_added}, Total growth: {garden.total_growth_cm}cm")
-            print(f"Plant types: {reg} regular, {flo} flowering, {pri} prize flowers")
+            print(
+                f"\nPlants added: {garden.plants_added}, "
+                f"Total growth: {garden.total_growth_cm}cm")
+            print(
+                f"Plant types: {reg} regular, {flo} "
+                f"flowering, {pri} prize flowers")
 
     def __init__(self):
         self.gardens = {}
@@ -138,7 +145,9 @@ if __name__ == "__main__":
     alice.help_all_grow(1)
 
     manager.stats.report(alice)
-    print(f"\nHeight validation test: {GardenManager.validate_height(alice.plants[0].height_cm)}")
+    print(
+        f"\nHeight validation test: "
+        f"{GardenManager.validate_height(alice.plants[0].height_cm)}")
 
     # Coloca plantas no Bob SEM imprimir "Added ..."
     bob.plants.append(Plant("Cactus", 90))
@@ -149,4 +158,3 @@ if __name__ == "__main__":
     scores = manager.garden_scores()
     print(f"Garden scores- Alice: {scores['Alice']}, Bob: {scores['Bob']}")
     print(f"Total gardens managed: {manager.total_gardens_managed()}")
-    

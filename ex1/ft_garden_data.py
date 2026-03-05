@@ -3,6 +3,8 @@ class Plant:
         self.name = name
         self.height = height
         self.age = age
+
+
 if __name__ == "__main__":
     plants = [
         Plant("Rose", 25, 30),
@@ -13,4 +15,3 @@ if __name__ == "__main__":
     print("=== Garden Plant Registry ===")
     for p in plants:
         print(f"{p.name}: {p.height}cm, {p.age} days old")
-    
