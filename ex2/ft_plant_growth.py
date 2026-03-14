@@ -1,13 +1,13 @@
 class Plant:
-    def __init__(self, name: str, height: int, age_up: int):
+    def __init__(self, name: str, height: int, age_up: int) -> None:
         self.name = name
         self.height = height
         self.age_up = age_up
 
-    def grow(self):
+    def grow(self) -> None:
         self.height += 1
 
-    def age(self):
+    def age(self) -> None:
         self.age_up += 1
 
     def get_info(self) -> str:
